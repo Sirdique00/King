@@ -1,0 +1,28 @@
+-- Sadeeq AI V2 — Level 1 database foundation
+-- REVIEWED DESIGN CONTRACT ONLY.
+-- Do not execute until the Supabase project connection is verified.
+
+-- Required production entities:
+-- owner_profiles
+-- bots
+-- bot_secrets
+-- bot_websites
+-- bot_sessions
+-- ai_providers
+-- bot_usage
+-- security_audit_logs
+
+-- Security invariants:
+-- 1. No privileged provider credentials in client code.
+-- 2. Secret IDs are stored only as secure hashes.
+-- 3. Website access is scoped to a normalized origin and bot.
+-- 4. Sessions are short-lived and revocable.
+-- 5. Suspended/revoked bots and websites cannot create/continue sessions.
+-- 6. RLS is enabled before production data is exposed.
+-- 7. Public iframe operations use narrowly scoped server-side functions.
+-- 8. Rate limiting and security logging are server-side.
+--
+-- The actual CREATE TABLE / POLICY / FUNCTION migration will be generated
+-- only after the exact Supabase project is connected and the final column
+-- contract is checked. This prevents an unverified migration from damaging
+-- an unrelated project.
